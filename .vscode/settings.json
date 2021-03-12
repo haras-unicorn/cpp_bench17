@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "type_traits": "cpp",
+        "array": "cpp",
+        "cstddef": "cpp"
+    },
+    "cmake.configureSettings": {
+        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_BUILD_TYPE": "Release"
+    },
+    "testMate.cpp.test.advancedExecutables": [
+        {
+            "pattern": "./build/test.exe"
+        }
+    ]
+}

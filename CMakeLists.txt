@@ -48,3 +48,30 @@ target_link_libraries(test PRIVATE benchmark::benchmark)
 
 target_include_directories(bench PRIVATE ${PROJECT_SOURCE_DIR}/src)
 target_include_directories(test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+
+
+# std
+
+target_precompile_headers(
+    bench
+    PRIVATE
+    <type_traits>
+    <utility>
+    <memory>
+    <cstring>
+
+    <array>
+    <vector>
+)
+
+target_precompile_headers(
+    test
+    PRIVATE
+    <type_traits>
+    <utility>
+    <memory>
+    <cstring>
+    
+    <array>
+    <vector>
+)
