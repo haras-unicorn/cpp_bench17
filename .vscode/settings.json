@@ -5,7 +5,7 @@
         "cstddef": "cpp"
     },
     "cmake.configureSettings": {
-        "CMAKE_CXX_STANDARD": "20",
+        "CMAKE_CXX_STANDARD": "17",
         "CMAKE_CXX_BUILD_TYPE": "Release"
     },
     "testMate.cpp.test.advancedExecutables": [
