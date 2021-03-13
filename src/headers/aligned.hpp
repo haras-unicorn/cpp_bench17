@@ -1,19 +1,19 @@
 #include "deps.hpp"
 
 template <size_t size, size_t align>
-class alignas(align) my_aligned_storage
+class alignas(align) aligned_storage
 {
     std::byte val[size]{std::byte{0}};
 
 public:
-    constexpr inline my_aligned_storage() noexcept = default;
+    constexpr inline aligned_storage() noexcept = default;
 
     template <typename T>
     typename std::enable_if_t<
         sizeof(T) == size &&
             alignof(T) == align &&
             std::is_trivially_copyable_v<T>,
-        my_aligned_storage &> inline
+        aligned_storage &> inline
     operator=(const T &other) noexcept
     {
         std::memcpy(val, &other, size);
@@ -27,7 +27,7 @@ public:
                 alignof(T) == align &&
                 std::is_trivially_copyable_v<T>,
             int> = 0>
-    inline my_aligned_storage(const T &other) noexcept
+    inline aligned_storage(const T &other) noexcept
     {
         *this = other;
     }
@@ -50,7 +50,7 @@ public:
 
 void stack_storage(benchmark::State &state)
 {
-    std::array<my_aligned_storage<sizeof(int), alignof(int)>, 100> a{};
+    std::array<aligned_storage<sizeof(int), alignof(int)>, 100> a{};
 
     for (auto _ : state)
     {
@@ -86,7 +86,7 @@ BENCHMARK(stack_int);
 
 void heap_storage(benchmark::State &state)
 {
-    std::vector<my_aligned_storage<sizeof(int), alignof(int)>> v{};
+    std::vector<aligned_storage<sizeof(int), alignof(int)>> v{};
     v.reserve(100);
 
     for (auto _ : state)
