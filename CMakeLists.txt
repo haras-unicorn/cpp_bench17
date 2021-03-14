@@ -6,7 +6,7 @@ include(FetchContent)
 
 # google benchmark
 
-set(BENCHMARK_DOWNLOAD_DEPENDENCIES True)
+set(BENCHMARK_ENABLE_GTEST_TESTS OFF)
 
 FetchContent_Declare(
      google_benchmark_fetch
