@@ -10,7 +10,7 @@
     },
     "testMate.cpp.test.advancedExecutables": [
         {
-            "pattern": "./build/test.exe"
+            "pattern": "./builds/**/*test.exe"
         }
     ]
 }
