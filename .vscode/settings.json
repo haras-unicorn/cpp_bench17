@@ -8,6 +8,7 @@
         "CMAKE_CXX_STANDARD": "17",
         "CMAKE_CXX_BUILD_TYPE": "Release"
     },
+    "cmake.generator": "Ninja",
     "testMate.cpp.test.advancedExecutables": [
         {
             "pattern": "./builds/**/*test.exe"
